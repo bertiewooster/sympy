@@ -84,60 +84,57 @@ class Relational(Boolean, EvalfMixin):
     >>> Rel(y, x + x**2, '==')
     Eq(y, x**2 + x)
 
-
-    Declaring and obtaining a relation's type
-    ==========================================
-
-    A relation's type can be defined upon creation used ``rop``.
+    A relation's type can be defined upon creation using ``rop``.
     The relational type of an exising expression can be obtained 
     using its ``rel_op`` property.
     Here is a table of all the relation types, along with their 
     ``rop`` and ``rel_op`` values:
 
-    +-----------------+------------------+--------+
-    |Relation         |``rop``           |rel_op  |   
-    +=================+==================+========+
-    |Equality         |== or eq or None  |==      |
-    +-----------------+------------------+--------+
-    |Unequality       |!= or ne          |!=      |
-    +-----------------+------------------+--------+
-    |GreaterThan      |>= or ge          |>=      |
-    +-----------------+------------------+--------+
-    |LessThan         |<= or le          |<=      |
-    +-----------------+------------------+--------+
-    |StrictGreaterThan|> or gt           |>       |
-    +-----------------+------------------+--------+
-    |StrictLessThan   |< or lt           |<       |
-    +-----------------+------------------+--------+
+    +-----------------+----------------------------+------------+
+    |Relation         |``rop``                     |``rel_op``  |   
+    +=================+============================+============+
+    |Equality         |``==`` or ``eq`` or ``None``|``==``      |
+    +-----------------+----------------------------+------------+
+    |Unequality       |``!=`` or ``ne``            |``!=``      |
+    +-----------------+----------------------------+------------+
+    |GreaterThan      |``>=`` or ``ge``            |``>=``      |
+    +-----------------+----------------------------+------------+
+    |LessThan         |``<=`` or ``le``            |``<=``      |
+    +-----------------+----------------------------+------------+
+    |StrictGreaterThan|``>`` or ``gt``             |``>``       |
+    +-----------------+----------------------------+------------+
+    |StrictLessThan   |``<`` or ``lt``             |``<``       |
+    +-----------------+----------------------------+------------+
 
     For example, setting ``rop`` to ``==`` produces an ``Equality`` relation, ``Eq()``.
     So does setting ``rop`` to ``eq``, or leaving ``rop`` unspecified.
-    That is, the following three ``Rel()`` all produce the same result:
-
-    >>> Rel(y, x + x**2, '==')
-        Eq(y, x**2 + x)]
-    >>> Rel(y, x + x**2, 'eq')
-        Eq(y, x**2 + x)]
-    >>> Rel(y, x + x**2)
-        Eq(y, x**2 + x)]
-
+    That is, the first three ``Rel()`` below all produce the same result.
     Using a ``rop`` from a different row in the table produces a 
     different relation type.
-    For example using ``lt`` for ``rop`` produces a ``StrictLessThan`` inequality:
-    
+    For example, the fourth ``Rel()`` below using ``lt`` for ``rop`` 
+    produces a ``StrictLessThan`` inequality:
+
+    >>> from sympy import Rel
+    >>> from sympy.abc import x, y
+    >>> Rel(y, x + x**2, '==')
+        Eq(y, x**2 + x)
+    >>> Rel(y, x + x**2, 'eq')
+        Eq(y, x**2 + x)
+    >>> Rel(y, x + x**2)
+        Eq(y, x**2 + x)
     >>> Rel(y, x + x**2, 'lt')
         y < x**2 + x
 
     To obtain the relational type of an exising expression, 
     get its ``rel_op`` property. 
-    For example, ``rel_op`` is ``==`` for the ``Equality`` relation above:
+    For example, ``rel_op`` is ``==`` for the ``Equality`` relation above,
+    and ``<`` for the strict less than inequality above:
     
+    >>> from sympy import Rel
+    >>> from sympy.abc import x, y
     >>> my_equality = Rel(y, x + x**2, '==')
     >>> my_equality.rel_op
         '=='
-
-    and ``<`` for the strict less than inequality above:
-    
     >>> my_inequality = Rel(y, x + x**2, 'lt')
     >>> my_inequality.rel_op
         '<'
