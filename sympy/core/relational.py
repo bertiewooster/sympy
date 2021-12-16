@@ -85,26 +85,26 @@ class Relational(Boolean, EvalfMixin):
     Eq(y, x**2 + x)
 
     A relation's type can be defined upon creation using ``rop``.
-    The relational type of an exising expression can be obtained 
+    The relation type of an exising expression can be obtained 
     using its ``rel_op`` property.
     Here is a table of all the relation types, along with their 
     ``rop`` and ``rel_op`` values:
 
-    +-----------------+----------------------------+------------+
-    |Relation         |``rop``                     |``rel_op``  |   
-    +=================+============================+============+
-    |Equality         |``==`` or ``eq`` or ``None``|``==``      |
-    +-----------------+----------------------------+------------+
-    |Unequality       |``!=`` or ``ne``            |``!=``      |
-    +-----------------+----------------------------+------------+
-    |GreaterThan      |``>=`` or ``ge``            |``>=``      |
-    +-----------------+----------------------------+------------+
-    |LessThan         |``<=`` or ``le``            |``<=``      |
-    +-----------------+----------------------------+------------+
-    |StrictGreaterThan|``>`` or ``gt``             |``>``       |
-    +-----------------+----------------------------+------------+
-    |StrictLessThan   |``<`` or ``lt``             |``<``       |
-    +-----------------+----------------------------+------------+
+    +---------------------+----------------------------+------------+
+    |Relation             |``rop``                     |``rel_op``  |   
+    +=====================+============================+============+
+    |``Equality``         |``==`` or ``eq`` or ``None``|``==``      |
+    +---------------------+----------------------------+------------+
+    |``Unequality``       |``!=`` or ``ne``            |``!=``      |
+    +---------------------+----------------------------+------------+
+    |``GreaterThan``      |``>=`` or ``ge``            |``>=``      |
+    +---------------------+----------------------------+------------+
+    |``LessThan``         |``<=`` or ``le``            |``<=``      |
+    +---------------------+----------------------------+------------+
+    |``StrictGreaterThan``|``>`` or ``gt``             |``>``       |
+    +---------------------+----------------------------+------------+
+    |``StrictLessThan``   |``<`` or ``lt``             |``<``       |
+    +---------------------+----------------------------+------------+
 
     For example, setting ``rop`` to ``==`` produces an ``Equality`` relation, ``Eq()``.
     So does setting ``rop`` to ``eq``, or leaving ``rop`` unspecified.
@@ -125,7 +125,7 @@ class Relational(Boolean, EvalfMixin):
     >>> Rel(y, x + x**2, 'lt')
         y < x**2 + x
 
-    To obtain the relational type of an exising expression, 
+    To obtain the relation type of an exising expression, 
     get its ``rel_op`` property. 
     For example, ``rel_op`` is ``==`` for the ``Equality`` relation above,
     and ``<`` for the strict less than inequality above:
