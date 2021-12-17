@@ -85,13 +85,13 @@ class Relational(Boolean, EvalfMixin):
     Eq(y, x**2 + x)
 
     A relation's type can be defined upon creation using ``rop``.
-    The relation type of an exising expression can be obtained 
+    The relation type of an exising expression can be obtained
     using its ``rel_op`` property.
-    Here is a table of all the relation types, along with their 
+    Here is a table of all the relation types, along with their
     ``rop`` and ``rel_op`` values:
 
     +---------------------+----------------------------+------------+
-    |Relation             |``rop``                     |``rel_op``  |   
+    |Relation             |``rop``                     |``rel_op``  |
     +=====================+============================+============+
     |``Equality``         |``==`` or ``eq`` or ``None``|``==``      |
     +---------------------+----------------------------+------------+
@@ -106,12 +106,13 @@ class Relational(Boolean, EvalfMixin):
     |``StrictLessThan``   |``<`` or ``lt``             |``<``       |
     +---------------------+----------------------------+------------+
 
-    For example, setting ``rop`` to ``==`` produces an ``Equality`` relation, ``Eq()``.
+    For example, setting ``rop`` to ``==`` produces an 
+    ``Equality`` relation, ``Eq()``.
     So does setting ``rop`` to ``eq``, or leaving ``rop`` unspecified.
     That is, the first three ``Rel()`` below all produce the same result.
-    Using a ``rop`` from a different row in the table produces a 
+    Using a ``rop`` from a different row in the table produces a
     different relation type.
-    For example, the fourth ``Rel()`` below using ``lt`` for ``rop`` 
+    For example, the fourth ``Rel()`` below using ``lt`` for ``rop``
     produces a ``StrictLessThan`` inequality:
 
     >>> from sympy import Rel
@@ -125,8 +126,8 @@ class Relational(Boolean, EvalfMixin):
     >>> Rel(y, x + x**2, 'lt')
         y < x**2 + x
 
-    To obtain the relation type of an exising expression, 
-    get its ``rel_op`` property. 
+    To obtain the relation type of an exising expression,
+    get its ``rel_op`` property.
     For example, ``rel_op`` is ``==`` for the ``Equality`` relation above,
     and ``<`` for the strict less than inequality above:
     
