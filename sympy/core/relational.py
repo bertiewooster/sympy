@@ -106,7 +106,7 @@ class Relational(Boolean, EvalfMixin):
     |``StrictLessThan``   |``<`` or ``lt``             |``<``       |
     +---------------------+----------------------------+------------+
 
-    For example, setting ``rop`` to ``==`` produces an 
+    For example, setting ``rop`` to ``==`` produces an
     ``Equality`` relation, ``Eq()``.
     So does setting ``rop`` to ``eq``, or leaving ``rop`` unspecified.
     That is, the first three ``Rel()`` below all produce the same result.
@@ -130,7 +130,7 @@ class Relational(Boolean, EvalfMixin):
     get its ``rel_op`` property.
     For example, ``rel_op`` is ``==`` for the ``Equality`` relation above,
     and ``<`` for the strict less than inequality above:
-    
+
     >>> from sympy import Rel
     >>> from sympy.abc import x, y
     >>> my_equality = Rel(y, x + x**2, '==')
